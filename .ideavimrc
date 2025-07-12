@@ -9,7 +9,6 @@ set hlsearch                    " Highlight all search matches
 set visualbell                  " Use visual bell instead of beeping
 set clipboard+=unnamed          " Use system clipboard
 set ideajoin                    " Use ideajoin for line joining
-
 let mapleader = " "             " Set leader key to Space
 
 "" Plugins
@@ -18,34 +17,13 @@ set easymotion                  " Enable EasyMotion plugin for fast navigation
 set notimeout                   " Disable key sequence timeout
 set which-key                   " Enable which-key support (show key mappings)
 
-
-"" Tools
-" Project Tool Window
-let g:WhichKeyDesc_tools_project = "<leader>te Project Tool Window"
-map <leader>te :action ActivateProjectToolWindow<CR>
-" Terminal Tool Window
-let g:WhichKeyDesc_tools_terminal = "<leader>tt Terminal Tool Window"
-map <leader>tt :action ActivateTerminalToolWindow<CR>
-" Maven Tool Window
-let g:WhichKeyDesc_tools_maven = "<leader>tm Maven Tool Window"
-map <leader>tm :action ActivateMavenToolWindow<CR>
-" Database Tool Window
-let g:WhichKeyDesc_tools_database = "<leader>td Database Tool Window"
-map <leader>td :action ActivateDatabaseToolWindow<CR>
-" Commit Tool Window
-let g:WhichKeyDesc_tools_commit = "<leader>tc Commit Tool Window"
-map <leader>tc :action ActivateCommitToolWindow<CR>
-" Services Tool Window
-let g:WhichKeyDesc_tools_services = "<leader>ts Services Tool Window"
-map <leader>ts :action ActivateServicesToolWindow<CR>
-" Version Control (Git) Tool Window
-let g:WhichKeyDesc_tools_vcs = "<leader>tg Version Control Tool Window"
-map <leader>tg :action ActivateVersionControlToolWindow<CR>
-" Push changes to VCS
-let g:WhichKeyDesc_tools_push = "<leader>tp Push Changes to VCS"
-map <leader>tp :action Vcs.Push<CR>
+"" Move page down and center it
+map <C-d> <C-d>zz
+"" Move page up and center it
+map <C-u> <C-u>zz
 
 "" Refactoring
+let g:WhichKeyDesc_refactor = "<leader>r Refactoring"
 " Rename element (variable, method, class, etc.)
 let g:WhichKeyDesc_refactor_rename = "<leader>rr Rename Element"
 map <leader>rr :action RenameElement<CR>
@@ -57,44 +35,40 @@ let g:WhichKeyDesc_refactor_changetypesignature = "<leader>rt Change Type Signat
 map <leader>rt :action ChangeTypeSignature<CR>
 
 "" Create From Code
+let g:WhichKeyDesc_create = "<leader>c Create From Code"
 " Extract Method
 let g:WhichKeyDesc_create_extractmethod = "<leader>cm Extract Method"
 map <leader>cm :action ExtractMethod<CR>
 " Introduce Variable
 let g:WhichKeyDesc_create_introducevariable = "<leader>cv Introduce Variable"
 map <leader>cv :action IntroduceVariable<CR>
+" Inline Variable
+let g:WhichKeyDesc_create_inlinevariable = "<leader>cv Inline Variable"
+map <leader>cV :action Inline<CR>
 " Introduce Field
 let g:WhichKeyDesc_create_introducefield = "<leader>cf Introduce Field"
 map <leader>cf :action IntroduceField<CR>
 " Introduce Parameter
-let g:WhichKeyDesc_create_introduceparameter = "<leader>cp Introduce Parameter"
-map <leader>cp :action IntroduceParameter<CR>
+let g:WhichKeyDesc_create_introduceparameter = "<leader>cip Introduce Parameter"
+map <leader>cip :action IntroduceParameter<CR>
+" Introduce Property
+let g:WhichKeyDesc_create_introduceproperty = "<leader>cpt Introduce Property"
+map <leader>cp :action refactoring.introduce.property<CR>
 
 "" Menus
+let g:WhichKeyDesc_menus = "<leader>m Menus"
 " Run Anything
 let g:WhichKeyDesc_menus_runanything = "<leader>ma Run Anything"
 map <leader>ma :action RunAnything<CR>
 " Choose Debug Configuration
-let g:WhichKeyDesc_menus_debugconfig = "<leader>mr Choose Debug Configuration"
-map <leader>mr :action ChooseDebugConfiguration<CR>
+let g:WhichKeyDesc_menus_debugconfig = "<leader>md Choose Debug Configuration"
+map <leader>md :action ChooseDebugConfiguration<CR>
 " Choose Run Configuration
-let g:WhichKeyDesc_menus_runconfig = "<leader>md Choose Run Configuration"
-map <leader>md :action ChooseRunConfiguration<CR>
-
-"" Generate
-" New Scratch File
-let g:WhichKeyDesc_generate_scratchfile = "<leader>gs New Scratch File"
-map <leader>gs :action NewScratchFile<CR>
-
-"" Tab Management
-" Next Splitter
-let g:WhichKeyDesc_tab_nextsplitter = "<leader>sn Next Splitter"
-map <leader>sn :action NextSplitter<CR>
-" Close current tab/content
-let g:WhichKeyDesc_tab_closecontent = "<leader>sx Close Content"
-map <leader>sx :action CloseContent<CR>
+let g:WhichKeyDesc_menus_runconfig = "<leader>mr Choose Run Configuration"
+map <leader>mr :action ChooseRunConfiguration<CR>
 
 "" Navigation
+let g:WhichKeyDesc_navigation = "<leader>n Navigation"
 " Go to Class
 let g:WhichKeyDesc_navigation_gotoclass = "<leader>nc Go To Class"
 map <leader>nc :action GotoClass<CR>
