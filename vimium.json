@@ -1,0 +1,20 @@
+{
+  "keyMappings": "unmapAll\n\nmap j scrollDown\nmap k scrollUp\nmap h scrollLeft\nmap l scrollRight\n\nmap H goBack\nmap L goForward\n\nmap K nextTab\nmap J previousTab\n\nmap yy copyCurrentUrl\n\nmap f LinkHints.activateMode\nmap F LinkHints.activateModeToOpenInNewForegroundTab\n\nmap x removeTab\nmap X restoreTab\n\nmap yt duplicateTab\nmap r reload\n\nmap b Vomnibar.activateBookmarks\nmap B Vomnibar.activateBookmarksInNewTab\nmap T Vomnibar.activateTabSelection\nmap o Vomnibar.activate\nmap O Vomnibar.activateInNewTab\n\nmap / enterFindMode\nmap n performFind\nmap N performBackwardsFind\n\nmap t createTab\nmap gg scrollToTop\nmap G scrollToBottom\nmap P openCopiedUrlInNewTab\n\nmap v enterVisualMode",
+  "linkHintCharacters": "asdfghjkluioprewqvnmcxz",
+  "scrollStepSize": 200,
+  "settingsVersion": "2.3",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://monkeytype.com/*"
+    },
+    {
+      "passKeys": "r, o, O, l, L, j, J",
+      "pattern": "https?://excalidraw.com/*"
+    }
+  ]
+}
