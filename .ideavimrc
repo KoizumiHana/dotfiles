@@ -4,6 +4,7 @@ set relativenumber              " Show line numbers
 set showmode                    " Show current mode (insert, normal, etc.)
 set showcmd                     " Show incomplete commands
 set smartcase                   " Ignore case in search unless uppercase used
+set ignorecase                  " Ignore case for / search unless /C used
 set incsearch                   " Show search matches as you type
 set hlsearch                    " Highlight all search matches
 set visualbell                  " Use visual bell instead of beeping
@@ -17,11 +18,16 @@ set easymotion                  " Enable EasyMotion plugin for fast navigation
 set notimeout                   " Disable key sequence timeout
 set which-key                   " Enable which-key support (show key mappings)
 
-"" Move page down and center it
+"" Vim mappings
+" Move half page down and center it
 map <C-d> <C-d>zz
-"" Move page up and center it
+" Move half page up and center it
 map <C-u> <C-u>zz
+" Clear search highlight
+let g:WhichKeyDesc_clearhighlight = '<Leader>/ Clear Search Highlight'
+nnoremap <Leader>/ :noh<CR>
 
+"" IdeaVim mappings
 "" Refactoring
 let g:WhichKeyDesc_refactor = "<leader>r Refactoring"
 " Rename element (variable, method, class, etc.)
