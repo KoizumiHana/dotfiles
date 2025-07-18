@@ -90,3 +90,7 @@ map <leader>na :action GotoAction<CR>
 " EasyMotion jump to character (leader+j)
 let g:WhichKeyDesc_navigation_easymotion = "<leader>j EasyMotion Jump"
 map <leader>j <Plug>(easymotion-s)
+" Go One Method Up
+map [[ :action MethodUp<CR>
+" Go One Method Down
+map ]] :action MethodDown<CR>
