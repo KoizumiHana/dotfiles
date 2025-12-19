@@ -8,89 +8,132 @@ set ignorecase                  " Ignore case for / search unless /C used
 set incsearch                   " Show search matches as you type
 set hlsearch                    " Highlight all search matches
 set visualbell                  " Use visual bell instead of beeping
-set clipboard+=unnamed          " Use system clipboard
 set ideajoin                    " Use ideajoin for line joining
 let mapleader = " "             " Set leader key to Space
 
 "" Plugins
 set highlightedyank             " Highlight text on yank (copy)
 set easymotion                  " Enable EasyMotion plugin for fast navigation
-set notimeout                   " Disable key sequence timeout
+set timeoutlen=10000
 set which-key                   " Enable which-key support (show key mappings)
 
 "" Vim mappings
 " Move half page down and center it
-map <C-d> <C-d>zz
+nnoremap <C-d> <C-d>zz
 " Move half page up and center it
-map <C-u> <C-u>zz
+nnoremap <C-u> <C-u>zz
+" Move to next search item and center the screen
+nnoremap n nzzzv
+" Move to previous search item and center the screen
+nnoremap N Nzzzv
 " Clear search highlight
-let g:WhichKeyDesc_clearhighlight = '<Leader>/ Clear Search Highlight'
-nnoremap <Leader>/ :noh<CR>
+let g:WhichKeyDesc_clearhighlight = '<Esc> Clear Search Highlight'
+nnoremap <Esc> :noh<CR><Esc>
 
 "" IdeaVim mappings
 "" Refactoring
 let g:WhichKeyDesc_refactor = "<leader>r Refactoring"
 " Rename element (variable, method, class, etc.)
 let g:WhichKeyDesc_refactor_rename = "<leader>rr Rename Element"
-map <leader>rr :action RenameElement<CR>
+nnoremap <leader>rr :action RenameElement<CR>
 " Change method signature
 let g:WhichKeyDesc_refactor_changesignature = "<leader>rs Change Signature"
-map <leader>rs :action ChangeSignature<CR>
+nnoremap <leader>rs :action ChangeSignature<CR>
 " Change type signature
 let g:WhichKeyDesc_refactor_changetypesignature = "<leader>rt Change Type Signature"
-map <leader>rt :action ChangeTypeSignature<CR>
+nnoremap <leader>rt :action ChangeTypeSignature<CR>
 
 "" Create From Code
 let g:WhichKeyDesc_create = "<leader>c Create From Code"
 " Extract Method
 let g:WhichKeyDesc_create_extractmethod = "<leader>cm Extract Method"
-map <leader>cm :action ExtractMethod<CR>
+nnoremap <leader>cm :action ExtractMethod<CR>
 " Introduce Variable
 let g:WhichKeyDesc_create_introducevariable = "<leader>cv Introduce Variable"
-map <leader>cv :action IntroduceVariable<CR>
+nnoremap <leader>cv :action IntroduceVariable<CR>
 " Inline Variable
-let g:WhichKeyDesc_create_inlinevariable = "<leader>cv Inline Variable"
-map <leader>cV :action Inline<CR>
+let g:WhichKeyDesc_create_inlinevariable = "<leader>cV Inline Variable"
+nnoremap <leader>cV :action Inline<CR>
 " Introduce Field
 let g:WhichKeyDesc_create_introducefield = "<leader>cf Introduce Field"
-map <leader>cf :action IntroduceField<CR>
+nnoremap <leader>cf :action IntroduceField<CR>
 " Introduce Parameter
 let g:WhichKeyDesc_create_introduceparameter = "<leader>cip Introduce Parameter"
-map <leader>cip :action IntroduceParameter<CR>
+nnoremap <leader>cip :action IntroduceParameter<CR>
 " Introduce Property
-let g:WhichKeyDesc_create_introduceproperty = "<leader>cpt Introduce Property"
-map <leader>cp :action refactoring.introduce.property<CR>
+let g:WhichKeyDesc_create_introduceproperty = "<leader>cp Introduce Property"
+nnoremap <leader>cp :action refactoring.introduce.property<CR>
 
 "" Menus
 let g:WhichKeyDesc_menus = "<leader>m Menus"
 " Run Anything
 let g:WhichKeyDesc_menus_runanything = "<leader>ma Run Anything"
-map <leader>ma :action RunAnything<CR>
+nnoremap <leader>ma :action RunAnything<CR>
 " Choose Debug Configuration
 let g:WhichKeyDesc_menus_debugconfig = "<leader>md Choose Debug Configuration"
-map <leader>md :action ChooseDebugConfiguration<CR>
+nnoremap <leader>md :action ChooseDebugConfiguration<CR>
 " Choose Run Configuration
 let g:WhichKeyDesc_menus_runconfig = "<leader>mr Choose Run Configuration"
-map <leader>mr :action ChooseRunConfiguration<CR>
+nnoremap <leader>mr :action ChooseRunConfiguration<CR>
 
 "" Navigation
 let g:WhichKeyDesc_navigation = "<leader>n Navigation"
 " Go to Class
 let g:WhichKeyDesc_navigation_gotoclass = "<leader>nc Go To Class"
-map <leader>nc :action GotoClass<CR>
+nnoremap <leader>nc :action GotoClass<CR>
 " Go to File
 let g:WhichKeyDesc_navigation_gotofile = "<leader>nf Go To File"
-map <leader>nf :action GotoFile<CR>
+nnoremap <leader>nf :action GotoFile<CR>
 " Go to Symbol
 let g:WhichKeyDesc_navigation_gotosymbol = "<leader>nm Go To Symbol"
-map <leader>nm :action GotoSymbol<CR>
+nnoremap <leader>nm :action GotoSymbol<CR>
 " Go to Action
 let g:WhichKeyDesc_navigation_gotoaction = "<leader>na Go To Action"
-map <leader>na :action GotoAction<CR>
+nnoremap <leader>na :action GotoAction<CR>
 " EasyMotion jump to character (leader+j)
 let g:WhichKeyDesc_navigation_easymotion = "<leader>j EasyMotion Jump"
-map <leader>j <Plug>(easymotion-s)
+nnoremap <leader>j <Plug>(easymotion-s)
 " Go One Method Up
-map [[ :action MethodUp<CR>
+nnoremap [[ :action MethodUp<CR>
 " Go One Method Down
-map ]] :action MethodDown<CR>
+nnoremap ]] :action MethodDown<CR>
+
+"" Errors
+let g:WhichKeyDesc_errors = "<leader>e Errors"
+" Go to next error
+let g:WhichKeyDesc_errors_next = "<leader>en Next Error"
+nnoremap <leader>en :action GotoNextError<CR>
+" Go to previous error
+let g:WhichKeyDesc_errors_prev = "<leader>ep Previous Error"
+nnoremap <leader>ep :action GotoPreviousError<CR>
+" Open Problems tool window
+let g:WhichKeyDesc_errors_list = "<leader>el Error List"
+nnoremap <leader>el :action ActivateProblemsViewToolWindow<CR>
+
+"" Documentations
+let g:WhichKeyDesc_docs = "<leader>d Docs"
+" Show java documentation popup
+let g:WhichKeyDesc_docs_quick_java_doc = "<leader>dk Show java documentation popup"
+nnoremap <leader>dk :action QuickJavaDoc<CR>
+" Show expression type info popup
+let g:WhichKeyDesc_docs_expression_type = "<leader>dt Show expression type info popup"
+nnoremap <leader>dt :action ExpressionTypeInfo<CR>
+" Show error description popup
+let g:WhichKeyDesc_docs_error_desc = "<leader>dd Show error description popup"
+nnoremap <leader>dd :action ShowErrorDescription<CR>
+" Show quick implementation popup
+let g:WhichKeyDesc_docs_quick_implementation = "<leader>di Show quick implementation popup"
+nnoremap <leader>di :action QuickImplementations<CR>
+
+"" GIT
+let g:WhichKeyDesc_git = "<leader>g GIT"
+" Fetch
+let g:WhichKeyDesc_git_fetch = "<leader>gf Fetch"
+nnoremap <leader>gf :action Git.Fetch<CR>
+" Show branches popup
+let g:WhichKeyDesc_git_branches = "<leader>gb Show branches popup"
+nnoremap <leader>gb :action Git.Branches<CR>
+
+"" Surround with
+let g:WhichKeyDesc_surround_with = "<leader>sw Surround with"
+vnoremap <leader>sw :action SurroundWith<CR>
