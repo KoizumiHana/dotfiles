@@ -143,25 +143,3 @@ nmap <leader>gb <Action>(Git.Branches)
 "" Surround with
 let g:WhichKeyDesc_surround_with = "<leader>sw Surround with"
 vmap <leader>sw <Action>(SurroundWith)
-
-"" Tool windows
-let g:WhichKeyDesc_project_view = "<leader>1 Project view"
-nmap <leader>1 <Action>(ActivateProjectToolWindow)
-let g:WhichKeyDesc_maven = "<leader>2 Maven"
-nmap <leader>2 <Action>(ActivateMavenToolWindow)
-let g:WhichKeyDesc_database = "<leader>3 Database"
-nmap <leader>3 <Action>(ActivateDatabaseToolWindow)
-let g:WhichKeyDesc_terminal = "<leader>4 Terminal"
-nmap <leader>4 <Action>(ActivateTerminalToolWindow)
-let g:WhichKeyDesc_debug = "<leader>5 Debug"
-nmap <leader>5 <Action>(ActivateDebugToolWindow)
-let g:WhichKeyDesc_problems = "<leader>6 Problems"
-nmap <leader>6 <Action>(ActivateProblemsViewToolWindow)
-let g:WhichKeyDesc_sonarqube = "<leader>7 SonarQube"
-nmap <leader>7 <Action>(ActivateSonarQubeforIDEToolWindow)
-let g:WhichKeyDesc_services = "<leader>8 Services"
-nmap <leader>8 <Action>(ActivateServicesToolWindow)
-let g:WhichKeyDesc_git_view = "<leader>9 GIT view"
-nmap <leader>9 <Action>(ActivateVersionControlToolWindow)
-let g:WhichKeyDesc_commit_view = "<leader>0 Commit view"
-nmap <leader>0 <Action>(ActivateCommitToolWindow)
