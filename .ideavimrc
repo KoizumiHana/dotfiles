@@ -17,8 +17,9 @@ set highlightedyank             " Highlight text on yank (copy)
 set easymotion                  " Enable EasyMotion plugin for fast navigation
 set which-key                   " Enable which-key support (show key mappings)
 
+set notimeout
 " make the popup appear much slower
-let g:WhichKey_DefaultDelay = 600
+let g:WhichKey_DefaultDelay = 1000
 
 "" Vim mappings
 " Move half page down and center it
@@ -84,6 +85,7 @@ let g:WhichKeyDesc_navigation = "<leader>n Navigation"
 " Go to Class
 let g:WhichKeyDesc_navigation_gotoclass = "<leader>nc Go To Class"
 nmap <leader>nc <Action>(GotoClass)
+vmap <leader>nc <Action>(GotoClass)
 " Go to File
 let g:WhichKeyDesc_navigation_gotofile = "<leader>nf Go To File"
 nmap <leader>nf <Action>(GotoFile)
@@ -100,6 +102,8 @@ nmap <leader>j <Plug>(easymotion-s)
 nmap [[ <Action>(MethodUp)
 " Go One Method Down
 nmap ]] <Action>(MethodDown)
+" Go To Implementation
+nmap gi <Action>(GotoImplementation)
 
 "" Errors
 let g:WhichKeyDesc_errors = "<leader>e Errors"
@@ -116,14 +120,14 @@ nmap <leader>el <Action>(ActivateProblemsViewToolWindow)
 "" Documentations
 let g:WhichKeyDesc_docs = "<leader>d Docs"
 " Show java documentation popup
-let g:WhichKeyDesc_docs_quick_java_doc = "<leader>dk Show java documentation popup"
-nmap <leader>dk <Action>(QuickJavaDoc)
+let g:WhichKeyDesc_docs_quick_java_doc = "<leader>dq Show java documentation popup"
+nmap <leader>dq <Action>(QuickJavaDoc)
 " Show expression type info popup
 let g:WhichKeyDesc_docs_expression_type = "<leader>dt Show expression type info popup"
 nmap <leader>dt <Action>(ExpressionTypeInfo)
 " Show error description popup
-let g:WhichKeyDesc_docs_error_desc = "<leader>dd Show error description popup"
-nmap <leader>dd <Action>(ShowErrorDescription)
+let g:WhichKeyDesc_docs_error_desc = "<leader>de Show error description popup"
+nmap <leader>de <Action>(ShowErrorDescription)
 " Show quick implementation popup
 let g:WhichKeyDesc_docs_quick_implementation = "<leader>di Show quick implementation popup"
 nmap <leader>di <Action>(QuickImplementations)
@@ -133,12 +137,6 @@ let g:WhichKeyDesc_git = "<leader>g GIT"
 " Fetch
 let g:WhichKeyDesc_git_fetch = "<leader>gf Fetch"
 nmap <leader>gf <Action>(Git.Fetch)
-" Push
-let g:WhichKeyDesc_git_push = "<leader>gp Push"
-nmap <leader>gp <Action>(Vcs.Push)
-" Show branches popup
-let g:WhichKeyDesc_git_branches = "<leader>gb Show branches popup"
-nmap <leader>gb <Action>(Git.Branches)
 
 "" Surround with
 let g:WhichKeyDesc_surround_with = "<leader>sw Surround with"
